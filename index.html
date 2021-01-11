@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.jpg" type="image/jpg" sizes="16x16">
+    <link rel="stylesheet" href="style.css">
+    <title>Lig-4</title>
+    <script>
+        let select = new Audio()
+        select.src = "sounds/select.wav"
+        select.volume = 0.01
+
+        let playSong = new Audio()
+        playSong.src = "sounds/play.wav"
+        playSong.volume = 0.01
+    </script>
+</head>
+<body>
+    <div id="StartScreen"> 
+        
+        <div id="box">
+            <div id="StartLogo"></div>
+
+            <div id="innerBox">
+                <h2>Regras</h2>
+                <p>O jogo é constituído por dois jogadores, sendo que cada um, na sua vez, escolherá uma coluna para colocar seu disco.</p>
+                <div id="space">
+                    <p>///////////////////////////////////////////////////////////////////////////////////////////</p>
+                </div>
+
+                <h2>Objetivo</h2>
+                <p>Ser o primeiro jogador a conseguir fazer uma sequência de quatro discos, seja ela na diagonal, horizontal ou vertical.</p>
+            </div>
+
+            <div id="PlayersArea">
+
+                <div id='playerOne'>
+                    <p>#Jogador 1</p>
+                    <input type="text" id='inputPlayer1'>
+
+                    <p>#Disco</p>
+                    <div id='discosPlayer1'>
+                        <img id="disco1blue" onmousedown="select.play()" src="./img/disco1blue.png" alt="disco">
+                        <img id="disco2blue" onmousedown="select.play()" src="./img/disco2blue.png" alt="disco">
+                        <img id="disco3blue" onmousedown="select.play()" src="./img/disco3blue.png" alt="disco">
+                    </div>
+
+                </div>
+                <div id="line"></div>
+
+                <div id='playerTwo'>
+                    <p>#Jogador 2</p> 
+                    <input type="text" id='inputPlayer2'>
+
+                    <p>#Disco</p>
+                    <div id='discosPlayer2'>
+                        <img id="disco1red" onmousedown="select.play()" src="./img/disco1red.png" alt="disco">
+                        <img id="disco2red" onmousedown="select.play()" src="./img/disco2red.png" alt="disco">
+                        <img id="disco3red" onmousedown="select.play()" src="./img/disco3red.png" alt="disco">
+                    </div>
+                </div>
+            </div>
+            
+            <div type="button" onmousedown="playSong.play()" value="Play" id="buttonStart"><p>play</p></div>
+
+        </div>
+    </div>
+    
+    <div id="main">
+        <!-- Logo do jogo -->
+        <div id="logo"><img src="./img/gameLogo.png" alt=""></div>
+
+        <!-- Area do controle dos discos a serem adicionados-->
+        <div id="discos"><div id="disc1"></div></div>
+
+        <!-- Area do placar de vitorias de cada jogador e empates -->
+        <div id="container1">
+            
+                        <p id="winTitle" >VITÓRIAS</p>
+        <div id="player1">JOGADOR 1</div><div id="player2">JOGADOR 2</div>
+        <div id="score1">00</div><div id="score2">00</div>
+
+                    <p id="empate">EMPATES</p>
+                    <div id="draw_score">00</div>
+        </div>
+
+        <div id="RestartButton" onmousedown="select.play()" onclick="resetGame()"> <p>RESTART</p> </div>
+        
+
+
+
+        <!-- Area para mostrar se ganhou, ou deu empate -->
+        <div id="UpdateScreen">
+        </div>
+
+        <!-- Area do tabuleiro -->
+        <div id="board"></div>
+
+        <!-- Timer, inicia assim que começa o jogo. -->
+        <div id="timer"><p id="digits">00:00:00</p></div>
+
+        <!-- Area para mostra o jogador atual -->
+        <div id="player"><p id="PlayerAtual"></p></div>
+
+
+
+        <!-- Footer para apresentção dos desenvolvedores -->
+        <div id="credits"> 
+            <div id="kenzie-logo"><a href="https://kenzie.com.br/"><img  src="kenzie.png" alt=""></a></div>
+        </div>
+        <div id="bar">
+            <a href="https://www.linkedin.com/in/lucas-duarte-7b3844181/" id="LD"><p>Lucas Duarte</p></a>
+            <p>///</p>
+            <a href="https://www.linkedin.com/in/j%C3%BAlia-sperandio-b31493aa/" id="JS"><p>Júlia Sperandio</p></a>
+            <p>///</p>
+            <a href="https://www.linkedin.com/in/maiconlourenco/" id="ML"><p>Maicon Lourenço</p></a>
+        </div>
+
+    </div>
+    <script src="sound.js"></script>
+    <!-- Funções principais -->
+    <script src="script.js"></script>
+
+    <!-- Validadores de vitória e empate -->
+    <script src="validators.js"></script>
+
+    <!-- Conteúdos Adicionais -->
+    <script src="addons.js"></script>
+
+
+</body>
+</html>
